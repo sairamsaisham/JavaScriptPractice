@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oops</title>
+</head>
+<body>
+    
+    <script>
+    //Objects in js can be broadly classified into 2 categories:
+    //1. standard built-in objects: example: string,array,RegExp,Date etc..
+      var currentDate = new Date();
+      document.write(currentDate.getFullYear() + "<br />");
+    //2. Custom objects: in js there are two ways to create a custom objects
+    //--> Constucter function:
+    //--> Literal notation:
+    //Creating an object using constuctor function
+    function Employee(firstName, lastName)
+    {
+         this.firstName = firstName;
+         this.lastName = lastName;
+
+         this.getFullName = function ()
+         {
+           return this.firstName + " " + this.lastName;
+         }
+    }
+
+    var employee = new Employee("swetha", "Gadipelli");
+
+    document.write("FirstName = " + employee.firstName + "<br />");
+    document.write("LastName = " + employee.lastName + "<br />");
+    document.write("FullName = " + employee.getFullName() + "<br /><br/>");
+   /*****************************************************/
+   //Creating an object using Literal notation:
+   var employee = 
+   {
+     firstName: "swetha",
+     lastName: "Gadipelli",
+     getFullName: function()
+     {
+       return this.firstName + " " + this.lastName;
+     }
+   }
+   document.write("FirstName = " + employee.firstName + "<br />");
+    document.write("LastName = " + employee.lastName + "<br />");
+    document.write("FullName = " + employee.getFullName() + "<br /><br />");
+    
+    /***************************************************/
+    ////Object literal vs Constuctor
+    // using Object literal: when a change is made to the object,
+    //-it affects that across the entire script.
+    var employee =
+    {
+      name : "swetha"
+    }
+    var newEmployee = employee;
+     
+    document.write("Before Changes<br />")
+    document.write("employee.name = " + employee.name + "<br />");
+    document.write("newEmployee.name = " + newEmployee.name + "<br /><br />")
+    
+    newEmployee.name = "vedhansh";
+    document.write("After Changes<br />")
+    document.write("employee.name = " + employee.name + "<br />");
+    document.write("newEmployee.name = " + newEmployee.name + "<br /><br />")
+    
+    // using constructor: when a change is made to one instance,
+    //- will not affect other instances.
+
+    var emp = function ()
+    {
+      this.name = "swetha";
+    }
+
+    var employee = new emp();
+    var newEmployee = new emp();
+
+    document.write("Before Changes<br />")
+    document.write("employee.name = " + employee.name + "<br />");
+    document.write("newEmployee.name = " + newEmployee.name + "<br /><br />")
+    
+    newEmployee.name = "vedhansh";
+    
+    document.write("After Changes<br />")
+    document.write("employee.name = " + employee.name + "<br />");
+    document.write("newEmployee.name = " + newEmployee.name + "<br />");
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+    <script src = prototype.js>
+
+    </script>
+</head>
+<body>
+    <script>
+        //// the following Employee constructor function Employee object.
+        //- There are several ways to add a function to the Employee object,
+        //- One way is as shown below. This works but the problem with this approach
+        //-is that, if u create 100 employee objects there will be 100 copies of 'getNmae()' 
+        //- function. we don't want to be creating copies of functions, instead
+        //- we want all the objects to share the same function code. This can be
+        // - achieved using 'JavaScript Prototype object'.
+        ///This is one way of adding function to an object
+        /* function Employee (name)
+        {
+            this.name = name;
+
+            this.getName = function ()
+            {
+                return this.name;
+            }
+
+        }
+        //creating Emplloyee objects
+        var e1 = new Employee("vedha");
+        var e2 = new Employee("vedhansh");
+
+        document.write("E1 name = " + e1.getName() + "<br />");
+        document.write("E2 name = " + e2.getName() + "<br />"); */
+
+        //This is another way of adding function to an object 
+        /* function Employee (name)
+        {
+            this.name = name;
+        }
+        
+        var e1 = new Employee("vedha");
+        e1.getName = function ()
+            {
+                return this.name;
+            }
+
+        var e2 = new Employee("vedhansh");
+
+        document.write("E1 name = " + e1.getName() + "<br />");
+        document.write("E2 name = " + e2.getName() + "<br />");  */
+
+        //This is another way of adding function to an object 
+        //This way throw an error : Object doesn't support property or method 'getName'
+        /* function Employee (name)
+        {
+            this.name = name;
+        }
+        
+        
+        Employee.getName = function ()
+            {
+                return this.name;
+            }
+
+        var e1 = new Employee("vedha");
+        var e2 = new Employee("vedhansh");
+
+        document.write("E1 name = " + e1.getName() + "<br />");
+        document.write("E2 name = " + e2.getName() + "<br />");  */
+        
+        //we can use Prototype object to add functions.
+        //Advantages: 
+        //1) No matter how many objects you create, functions
+        //- are loaded only once into memory.
+        
+        /* function Employee (name)
+        {
+            this.name = name;
+        }
+        
+        
+        Employee.prototype.getName = function ()
+            {
+                return this.name;
+            }
+
+        var e1 = new Employee("vedha");
+        var e2 = new Employee("vedhansh");
+
+        document.write("E1 name = " + e1.getName() + "<br />");
+        document.write("E2 name = " + e2.getName() + "<br />");  */
+   
+         ////Overriding javascript functions
+         //2) Allows you to override functions if required.
+         /* Employee.prototype.getName = function ()
+            {
+                return this.name.toUpperCase();
+            }
+
+            var e1 = new Employee("vedha");
+            var e2 = new Employee("vedhansh");
+
+         document.write("E1 name = " + e1.getName() + "<br />");
+         document.write("E2 name = " + e2.getName() + "<br />"); 
+        
+          function Employee (name)
+        {
+            this.name = name;
+        }
+        
+        
+            Employee.prototype.getName = function ()
+            {
+                return this.name;
+            }
+            */
+
+            /****************************************************/
+            // this below code using the external js code(prototype.js)
+            /* var e1 = new Employee("vedha");
+            var e2 = new Employee("vedhansh");
+
+            document.write("E1 name = " + e1.getName() + "<br />");
+            document.write("E2 name = " + e2.getName() + "<br />");  */
+            /***********************************************/
+          //this below code overrides the external js code(prototype.js)
+          /* getEmployeeDetails();
+          function getEmployeeDetails()
+           {
+
+             Employee.prototype.getName = function ()
+            {
+                return this.name.toUpperCase();
+            }
+
+            var e1 = new Employee("vedha");
+            var e2 = new Employee("vedhansh");
+
+            document.write("E1 name = " + e1.getName() + "<br />");
+            document.write("E2 name = " + e2.getName() + "<br />"); 
+            } */
+            /**************************************************/
+            //// JS built-in methods can also be overridden.
+            //Ex: below code overrides the built-in js alert() function.
+            var alert = function(msg)
+            {
+                document.write(msg);
+            }
+            alert("Hello");
+            window.alert(" Vedhansh!");
+   </script>
+</body>
+</html>

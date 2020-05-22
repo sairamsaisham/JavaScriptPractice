@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object reflection</title>
+</head>
+<body>
+    <script>
+    ////Object oriented programming languages like C# and Java, support reflection.
+    //-Reflection allows us to inspect meta data of assemblies, modules and types. 
+    //-Since JavaScript is also an object oriented programming language, it also 
+    //-supports the concept of reflection. Let's understand Object reflection in JavaScript with an example.
+
+    //Constuctor function
+    /* var Employee = function (firstName, lastName, gender, email)
+    {
+        //Pubilc fields
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.email = email;
+    }
+
+    //public functions
+    Employee.prototype.getFullName = function()
+    {
+        return this.firstName + " " + lastName ;
+    }
+
+    Employee.prototype.getGender = function ()
+    {
+        return this.gender;
+    }
+
+    Employee.prototype.getEmail = function ()
+    {
+        return this.email;
+    }
+
+    var employee = new Employee("vedhansh", "Gadipelli", "Male", "vedha@g.com");
+ */
+    //The following code retrieves all the public properties and methods of the Employee object.
+    /* for(var property in employee)
+    {
+        document.write(property + "<br/>");
+    }
+ */
+    //The following code retrieves all the public properties & functions
+    //- of the Employee object along with their values.
+    /* for(var property in employee)
+    {
+        document.write(property + ": " + employee[property] + "<br/>");
+    }
+ */
+    //The following code retrieves only the public properties of the Employee object.
+    /* for(var property in employee)
+    {
+        if(typeof employee[property] != "function")
+        {
+            document.write(property + ": " + employee[property] + "<br/>");
+        }
+    } */
+
+    //The following code retrieves only the public functions of the Employee object.
+  /*   for(var property in employee)
+    {
+        if(typeof employee[property] == "function")
+        {
+            document.write(property + ": " + employee[property] + "<br/>");
+        }
+    }
+ */
+    /******************************************************************/
+    ////When 2 objects are related thru inheritance, the child object will have access to 
+    //-parent object methods and properties. In this example, PermanentEmployee is a child 
+    //-of Employee. The following code shows all the properties and methods of the PermanentEmployee 
+    //-object including those it inherited from the Employee object.
+    var Employee = function (firstName, lastName, gender, email)
+    {
+        //Pubilc fields
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.email = email;
+    }
+
+    //public functions
+    Employee.prototype.getFullName = function()
+    {
+        return this.firstName + " " + lastName ;
+    }
+
+    Employee.prototype.getGender = function ()
+    {
+        return this.gender;
+    }
+
+    Employee.prototype.getEmail = function ()
+    {
+        return this.email;
+    }
+
+    var employee = new Employee("vedhansh", "Gadipelli", "Male", "vedha@g.com");
+    
+    var PermanentEmployee = function(annualSalary)
+    {
+        this.annualSalary = annualSalary;
+    }
+
+    //permanentEmployee is derived from Employee object.
+    PermanentEmployee.prototype = employee;
+
+    var pe = new PermanentEmployee(50000);
+
+    /* for (var property in pe)
+    {
+        document.write(property + ": " + pe[property] + "<br/>");
+    }
+ */
+    //The following code retrieves only the public members that are defined in the PermanentEmployee 
+    //-object. The members inherited from the base Employee object are excluded.
+    //In this example, we are using hasOwnProperty() method to determine if a property is defined on
+    //- the actual object or it's prototype. This method returns true if the property is defined by the object itself, otherwise false.
+  /*   for (var property in pe)
+    {
+        if(pe.hasOwnProperty(property))
+        {
+            document.write(property + ": " + pe[property] + "<br/>");
+        }
+    } */
+
+    //retrieves only the public members inherited from the parent object. Public members defined in PermanentEmployee object are excluded.
+    for (var property in pe) 
+    {
+    if (!pe.hasOwnProperty(property)) 
+    {
+        document.write(property + " : " + pe[property] + "<br/>");
+    }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strict mode</title>
+</head>
+<body>
+    <script>
+        ////In C#, if you assign a value to a variable that is not declared, you get an error stating 
+        //- The name 'myString' does not exist in the current context.
+       /*  myString = "This is a string"; */
+      
+       ////Where as the same code in JavaScript does not raise any error. JavaScript automatically creates
+       //- a global variable with name myString. This kind of a behaviour may lead the developer to make more mistakes. 
+        /* myString = "This is a string";
+        document.write(myString); */
+      
+       ////if you want JavaScript also to throw an error, then use Strict Mode. like c# and java.
+       //- you have to enable "use strict" statement in your script file as shown below. When you run the page,
+       //- you will now get an error.
+
+        /* "use strict";
+
+        myString = "This is a string";
+        document.write(myString); */
+
+        ////If we want enforce javascript strictness in a specific function:
+        //-Just add "use strict" statement in the function as shown below. In this example, strictness is enforced only in myFunction().
+        /* myString = "This is a string <br/> ";
+        document.write(myString);
+
+        function myFunction()
+        {
+            "use strict";
+            var myOtherString = "This is also string";
+            document.write(myOtherString);
+        }
+        myFunction(); */
+        
+        ////In JavaScript, if you assign a value to a read-only property, JavaScript silently fails without raising an error.
+       /*  var Employee = function (name)
+        {
+            var _name = name;
+
+            Object.defineProperty(this, "name",
+            {
+                get: function ()
+                {
+                    return _name;
+                }
+            });
+        }
+
+        var employee = new Employee("Vedhansh");
+
+        // name is readonly property. It is an error to assign a value to a read-only property.
+        // JavaScript silently fails the following line without raising an error.
+        employee.name = "Vedhansh G"
+
+        document.write(employee.name); */
+
+        ////If you want JavaScript to raise an error instead of failing silently, 
+        //-use JavaScript strict mode. The code below raises an error stating - Assignment
+        //- to read-only properties is not allowed in strict mode.
+        
+        "use strict";
+
+        var Employee = function (name)
+        {
+            var _name = name;
+
+            Object.defineProperty(this, "name",
+            {
+                get: function ()
+                {
+                    return _name;
+                }
+            });
+        }
+
+        var employee = new Employee("Vedhansh");
+
+        employee.name = "Vedhansh G"
+
+        document.write(employee.name);
+
+        ////ECMAScript version 5 introduced strict mode to JavaScript. With strict mode on it is 
+        //-easier to detect JavaScript silent errors as they would throw an error now. This makes 
+        //-debugging much easier and the chances of developers making mistakes is reduced. Most modern browsers support strict mode.
+
+       // For the list of most important restrictions that apply in strict mode, please refer the following MSDN article
+        //https://msdn.microsoft.com/en-us/libr...
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Namespace pollution</title>
+<script src = "TeamA.js"></script>
+<script src = "TeamB.js"></script>
+
+</head>
+<body>
+     <!-- Global Namespace pollution -->
+    <!-- Polluting global namespace causes name collision. -->
+    <!-- Namespaces in js: to solve above collision problem we use namespaces.
+         Javascript lack namepaces.However we can use objects to create namespaces -->
+    
+    
+    <div id="resultDiv"></div>
+    <script>
+      // document.getElementById("resultDiv").innerHTML = new customer("swetha", "Gadipelli").getFullName();
+    alert(window.PragimTech.TeamA.customer("swetha", "Gadipelli").getFullName());
+    alert(window.PragimTech.TeamB.customer("swetha", "vedhansh", "Gadipelli").getFullName());
+    </script>
+</body>
+</html>

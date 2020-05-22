@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties</title>
+</head>
+<body>
+    <script>
+      //// in object oriented programming language, Objects in JavaScript can also have properties.
+//1. Read/Write properties
+//2. Read only properties
+//3. Write only properties
+// Note:: if you do not understand this concept then watch, https://www.youtube.com/watch?v=gdjfsDlkH7A&list=PL6n9fhu94yhUA99nOsJkKXBqokT3MBK0b&index=58
+//Example: 
+
+function Employee(name, age)
+{
+    //Private variables initializing with function parameters
+    var _name = name;
+    var _age = age;
+
+    //define object properties to private variables.
+    Object.defineProperty(this, "age",
+     {
+        get: function () 
+        {
+            return _age;
+        },
+        set: function (value) 
+        {
+            if (value < 1 || value > 100) {
+                alert("Invalid age");
+            }
+            else {
+                _age = value;
+            }
+                        
+        }
+
+    });
+
+    Object.defineProperty(this, "name", 
+    {
+        get: function ()
+         {
+            return _name;
+        }
+    });
+    
+}
+
+var employee = new Employee("Tom", 30);
+employee.age = 90;
+employee.name = "swetha";
+alert(employee.name + " " + employee.age);
+
+
+
+    </script>
+</body>
+</html>

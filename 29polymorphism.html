@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polymorphism</title>
+</head>
+<body>
+    <script>
+        var Shape = function (){ }
+        Shape.prototype.draw = function ()
+        {
+            return "I am a generic shape";
+        }
+
+        var Circle = function () { }
+        Circle.prototype = Object.create(Shape.prototype);
+        Circle.prototype.draw = function ()// this draw method overrides the parent draw method.
+        {
+            return "I am a circle";
+        }
+
+        var Square = function () { }
+        Square.prototype = Object.create(Shape.prototype);
+        Square.prototype.draw = function()// this draw method overrides the parent draw method.
+        {
+            return "I am a Square";
+        }
+
+        var Triangle = function () { }
+        Triangle.prototype = Object.create(Shape.prototype);// no overriden here so, it goes to parent method o/p is 'I am a generic shape '
+
+        //Create a shapes array
+       var shapes = [new Shape(), new Circle(), new Square(), new Triangle()];
+
+       shapes.forEach(function (shape) {
+
+           document.write(shape.draw() + "<br />")
+
+       });
+
+
+    </script>
+</body>
+</html>

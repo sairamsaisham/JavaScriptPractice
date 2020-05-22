@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+    <style>
+        table,tr,td
+        {
+            border: 1px solid black ;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- *** 1 *** -->
+   <!--  <select id ="ddlTheme" onchange="setColorCookie()">
+        <option value="Select Color">Select Color</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+    </select>-->
+
+
+
+    <!-- *** 2 *** -->
+    <!--<input type="button" value="Set Cookie" onclick="setCookie()"/>
+    <input type="button" value="Get Cookie" onclick="getCookie()" /> -->
+
+    <!-- *** 3 *** -->
+    <table>
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                <input type="text" id = "txtName">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email
+            </td>
+            <td>
+                <input type="text" id="txtEmail">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Gender
+            </td>
+            <td>
+                <input type="text" id="txtGender">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="Set Cookie" onclick="setCookie()" />
+                <input type="button" value = "Get Cookie" onclick="getCookie()" />
+                <input type="button" value = "Clear" onclick="clearTextBoxes()" />
+
+            </td>
+        </tr>
+    </table>
+    <script> 
+                   
+        //the below does not remember our color preference when do refresh web page
+        //-or open in a another browser, why bcz web apps are working in http protocol, HTTP is stateless protocol.
+        //- to store the color we can use cookie.
+        /* function setColor()
+        {
+            var selectedColor = document.getElementById("ddlTheme").value;
+            if(selectedColor != "Select Color")
+            {
+                document.bgColor = selectedColor;
+            }
+        } */
+
+        /*************************************************************************************/
+
+
+        //// *** 1 *** 
+        ////What are cookies?
+        //Cookies are small text files that a browser stores in the visitor's computer. A cookie 
+        //-is basically a string of name-value pairs separated by semi-colons.
+        
+     /*    window.onload = function ()
+        
+        {
+            if(document.cookie.length != 0)
+            {
+                //to read a cookie
+                var nameValueArray = document.cookie.split("=");
+                document.getElementById("ddlTheme").value = nameValueArray[1];
+                document.bgColor = nameValueArray[1];
+            }
+            
+        }
+        function setColorCookie()
+        {
+            var selectedColor = document.getElementById("ddlTheme").value;
+            if(selectedColor != "Select Color")
+            {
+                document.bgColor = selectedColor;
+                //to write the cookie to client computer, we use cookie property of document object as shown below statement
+                document.cookie = "color=" + selectedColor + "; max-age=" + (60*60*24*30) + ";"                            
+            }
+        } */
+
+
+        /***********************************************************************************/
+
+        //// *** 2 *** 
+        ////Optional coockie attributes
+        //expires
+        //max-age
+        //domain
+        //path
+        //secure
+
+        //This cookies expires as soon as the browser is closed.
+        /* function setCookie()
+        {
+        document.cookie = "color=red"; 
+        }
+
+        function getCookie()
+        {
+            if(document.cookie.length != 0)
+            {
+               var nameValueArray = document.cookie.split("=");
+               alert("Name = " + nameValueArray[0] + " Value = " + nameValueArray[1]);
+            }
+            else
+            {
+                alert("cookie is not found");
+            }
+        } */
+       
+
+        //expires and max-age attributes:
+        //If we want create persistent cookie, that is a cookie that is not deleted after the 
+        //-browser is closed either use 'expires' or 'max-age' attributes.
+       /*  function setCookie()
+        {
+        document.cookie = "color=red;max-age=" + (60*60*24*30) + ";"
+        }
+
+        function getCookie()
+        {
+            if(document.cookie.length != 0)
+            {
+               var nameValueArray = document.cookie.split("=");
+               alert("Name = " + nameValueArray[0] + " Value = " + nameValueArray[1]);
+            }
+            else
+            {
+                alert("cookie is not found");
+            }
+        } */
+
+        //diff btw expires and max-age:
+        //expires attribute is set an expiry date, only few browsers support this attribute, IE is one of them.
+        //max-age attribute is specify the time in seconds. most modern browsers support this attribute except IE.
+        //If we want to create a persistent cookie that works in IE and all other browsers then specify both expiry and max-age attributes.
+
+        ////domain attribute: specify the domain for which the cookie is valid. If we specify the domain as "PragimTech.blog.com" then that cookie will be 
+        //-valid only for that sub-domain. It will not be valid for "PragimTech.com".
+        ////If you want a cookie to be valid for all sub-domains of PragimTech.com then specify domain=PragimTech.com. So this cookie will be valid for
+        //PragimTech.com
+        //PragimTech.Blog.com
+        //PragimTech.Blog.KudVenkat.com
+
+        ////path attribute : By default cookies are valid only for web pages in the directory of the current web page that stored them, as well as its descendants. 
+        // To see path attribute go to file:///C:/Users/saisw/Desktop/JS%20practice/cookies/page2.html
+        
+        ////secure attribute: specifies that the cookie is secure and is only used over HTTPS protocol
+        //-which ensures that the cookie is always encrypted when transmitting from client to server.
+
+        /***********************************************************************************************************/
+
+        //// *** 3 *** 
+        ////Storing multiple key value pairs
+        //This below code can store only one cookie(name=value pair), if u want to store multiple key value pairs then
+        //- we have 2 options.
+        /* function setCookie()
+        {
+            var cookieString = "name=" + document.getElementById("txtName").value +
+                                ";email=" + document.getElementById("txtEmail").value +
+                                ";gender=" + document.getElementById("txtGender").value ;
+
+                                document.cookie = cookieString;
+
+        }
+
+        function getCookie()
+        {
+            alert(document.cookie);
+        }
+
+        function clearTextBoxes()
+        {
+            document.getElementById("txtName").value = " ";
+            document.getElementById("txtEmail").value = " ";
+            document.getElementById("txtGender").value = " ";
+
+        } */
+
+        // Option 1: Create a custom object, serialize the object to a JSON string
+        //- and store the serilaized string in a cookie. 
+        
+        /* function setCookie()
+        {
+            var customObject = {};
+            customObject.name = document.getElementById("txtName").value;
+            customObject.email = document.getElementById("txtEmail").value;
+            customObject.gender = document.getElementById("txtGender").value;
+
+            //JSON.stringify method is going to convert javaScript object to a jsonstring. 
+            var jsonString = JSON.stringify(customObject);
+
+            document.cookie = "cookieObject=" + jsonString;
+
+        }
+
+        function getCookie()
+        {
+            var nameValueArray = document.cookie.split("=");
+
+            //JSON.parse method is going tp parse this jsonsting and return the corresponding object back to us(customObject).
+            var customObject = JSON.parse(nameValueArray[1]);
+
+            document.getElementById("txtName").value = customObject.name;
+            document.getElementById("txtEmail").value = customObject.email;
+            document.getElementById("txtGender").value = customObject.gender;
+
+        }
+
+        function clearTextBoxes()
+        {
+            document.getElementById("txtName").value = " ";
+            document.getElementById("txtEmail").value = " ";
+            document.getElementById("txtGender").value = " ";
+
+        } */
+
+        //// Option 2: Use a different cookie for each key-value pair you want store.
+        function setCookie()
+        {
+            document.cookie = "name=" + document.getElementById("txtName").value;
+            document.cookie = "email=" + document.getElementById("txtEmail").value;
+            document.cookie = "gender=" + document.getElementById("txtGender").value;
+
+        }
+
+        function getCookie()
+        {
+
+            if(document.cookie.length != 0)
+            {
+            var cookieArray = document.cookie.split("; ");
+
+            for(var i =0; i < cookieArray.length; i++)
+            {
+                var nameValueArray = cookieArray[i].split("=");
+
+                if(nameValueArray[0] == "name")
+                {
+                    document.getElementById("txtName").value = nameValueArray[1];
+                }
+                else if(nameValueArray[0] == "email")
+                {
+                    document.getElementById("txtEmail").value = nameValueArray[1];
+
+                }
+                else if(nameValueArray[0] == "gender")
+                {
+                    document.getElementById("txtGender").value = nameValueArray[1];
+
+                }
+            }
+        }
+        else{
+            alert("cookies not found");
+        }
+        }
+
+        function clearTextBoxes()
+        {
+            document.getElementById("txtName").value = " ";
+            document.getElementById("txtEmail").value = " ";
+            document.getElementById("txtGender").value = " ";
+
+        }
+
+
+
+
+    </script>
+</body>
+</html>

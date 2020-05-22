@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coockies page2</title>
+</head>
+<body>
+   <!--  <select id ="ddlTheme" onchange="setColorCookie()">
+        <option value="Select Color">Select Color</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+    </select>-->
+
+    <input type="button" value="Set Cookie" onclick="setCookie()"/>
+    <input type="button" value="Get Cookie" onclick="getCookie()" />
+
+    <script> 
+               
+
+    function setCookie()
+        {
+        document.cookie = "color=red;max-age=" + (60*60*24*30) + ";path=/";
+        }
+
+        function getCookie()
+        {
+            if(document.cookie.length != 0)
+            {
+               var nameValueArray = document.cookie.split("=");
+               alert("Name = " + nameValueArray[0] + " Value = " + nameValueArray[1]);
+            }
+            else
+            {
+                alert("cookie is not found");
+            }
+        }
+    </script>
+    </body>
+    </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window.location property</title>
+    <script>
+    //way 2: The "window.location" property returns a Location object that can be used to get information about the cuurent page.
+    //- window.location property can also be used to redirect the browser to a new page.
+
+
+    // If JavaScript is enabled this code redirects the user to 33updateAndDeleteCookies.html
+    // If JavaScript is disable this code will not execute and the user reamains on this
+    //- page and he gets to the see the message that JavaScript is disabled.
+
+    /* window.location = "file:///C:/Users/saisw/Desktop/JS%20practice/33updateAndDeleteCookies.html"; */
+    
+    ////window.location property is especially useful if you have 2 sites.
+    //1. One for users with javascript.
+    //2. Another for users without javascript
+
+    ////Some of the useful properties of the location object.
+    //window.location.href
+    //window.location.hostname
+    //window.location.protocol
+    //window.location.pathname
+
+    document.write("window.location.href = " + window.location.href + "<br/>");
+    document.write("window.location.hostname = " + window.location.hostname + "<br/>");
+    document.write("window.location.pathname = " + window.location.pathname + "<br/>");
+    document.write("window.location.protocol = " + window.location.protocol + "<br/>"); 
+
+   
+
+
+
+
+    
+    </script>
+</head>
+<body>
+    <!--<h1>It seems that you have disabled JavaScript. Please enable JavaScript.</h1>-->
+</body>
+</html>

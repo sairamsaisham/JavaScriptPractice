@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // In any oop's language, classes can have private and public members.
+function Employee(firstName, lastName)
+{
+//public Fields
+    this.firstName = firstName;
+    this.lastName = lastName;
+
+    //private field
+    var privateFullName;
+
+    //private function
+
+   /*  function privateGetFullName()
+    {
+
+    } or we can also write like this below */
+    
+    var privateGetFullName = function ()
+    {
+        privateFullName = firstName + " " + lastName;
+        return privateFullName;
+    }
+    
+    //priviliged method
+    this.priviligedGetFullName = function ()
+    {
+        return privateGetFullName();
+    }
+    
+    //public funtion
+    Employee.prototype.publicGetFullName = function ()
+    {
+        return this.priviligedGetFullName();
+    }
+    
+}
+var employee = new Employee("swetha", "Gadipelli");
+
+/* document.write("public function = " + employee.publicGetFullName() + "<br />");
+document.write("priviliged function = " + employee.priviligedGetFullName() + "<br />");
+document.write("private = " + employee.privateGetFullName());
+employee.privateFullName; */
+
+employee.privateFullName;
+employee.privateFullName = "ABC";
+document.write("public function = " + employee.publicGetFullName() + "<br />");
+document.write("Private fullname = " + employee.privateFullName);
+
+        
+    </script>
+
+</body>
+</html>

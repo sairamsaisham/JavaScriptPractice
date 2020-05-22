@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+    <style>
+        table,tr,td
+        {
+            border: 1px solid black ;
+        }
+    </style> 
+</head>
+<body>
+
+
+
+    <!-- Using "noscript" tag-->
+   <!--  <noscript>
+        <style>
+            .rootDivClass
+            {
+                display:  none;
+            }
+        </style> 
+
+    <h1>It seems that you have disabled JavaScript. Please enable JavaScript. </h1>
+   
+    </noscript>
+     -->
+    <div class="rootDivClass">
+    <table>
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>
+            <input type="text" id="txtName" onfocus="validateIfEmpty('txtName')" onblur = "validateIfEmpty('txtName')" onkeyup="validateIfEmpty('txtName')"  />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Gender
+        </td>
+        <td>
+            <input type="text" id="txtGender" onfocus="validateIfEmpty('txtGender')" onblur = "validateIfEmpty('txtGender')" onkeyup="validateIfEmpty('txtGender')"  />
+        </td>
+    </tr>
+</table>
+</div>
+
+<!-- div id="msg">
+
+</div> -->
+
+
+<!-- <input type="button" value="Set Cookie" onclick="setCookie()"/>
+<input type="button" value="Get Cookie" onclick="getCookie()" /> -->
+
+<script>
+    ////Updating a cookie:
+    // To update a cookie, set a cookie with the same name again. The following code updates the 
+    //-color cookie with the new_color if a cookie with name=color exists otherwise it creates a new cookie with that name.
+
+ /*    function setCookie()
+    {
+        //document.cookie = "color=green;max-age=3600;";
+
+        //TO update the above cookie with new_color
+        document.cookie = "color=red;max-age=3600;";
+
+    }
+
+    function getCookie()
+    {
+        if (document.cookie.length != 0)
+        {
+            var nameValueArray = document.cookie.split("=");
+            alert("Name=" + nameValueArray[0] + " Value=" +nameValueArray[1]);
+
+        }
+        else{
+            alert("No cookies found")
+        }
+    } */
+
+    ////Deleting a cookie:
+    //To delete a cookie, set a cookie with max-age attribute set to a nagative value.
+    /* function setCookie()
+    {
+        //document.cookie = "color=red;max-age=-1;";
+
+        //If you are using a browser that supports expires attribute, then set the expires attribute to a date in the past.
+        document.cookie = "color=red;expires=Mon, 01 Jan 1900 01:00:00 UTC;"
+
+        // Note: Users can also use the browser interface(clear browsing history) to delete cookies anytime they want.
+    }
+
+    function getCookie()
+    {
+        if (document.cookie.length != 0)
+        {
+            var nameValueArray = document.cookie.split("=");
+            alert("Name=" + nameValueArray[0] + " Value=" +nameValueArray[1]);
+
+        }
+        else{
+            alert("No cookies found")
+        }
+    } */
+
+    ////Cookie limitations : 
+    //1. What is the maximum allowed cookie size per cookie
+    //2. How many cookies are allowed per domain
+
+    //The answers to these questions really depend on the browser you are using. The following website can be used to find out what the limits are
+    //http://browsercookielimits.squawky.net
+
+    /*****************************************************/
+
+    ////How to check if cookies are enabled or disabled:
+
+    /* function cookiesEnabled()
+    {
+        var areCookiesEnabled = (navigator.cookieEnabled) ? true : false;
+
+        if(typeof navigator.cookieEnabled == "undefined" && !areCookiesEnabled)
+        {
+        document.cookie = "mytestcookie";
+        areCookiesEnabled = (document.cookie.indexOf("mytestcookie") != -1) ? true : false;
+        }
+        return areCookiesEnabled;
+    }
+
+    if(cookiesEnabled())
+    {
+        document.getElementById("msg").innerHTML = "Cookies are enabled";
+    }
+    else
+    {
+        document.getElementById("msg").innerHTML = "Cookies are disabled";
+
+    } */
+
+    /************************************************************************/
+    
+    ////Check if javascript is enabled or disabled:
+    //If javaScript is enabled then we want to display the Name and Gender elements and user can continue to use the application.
+     function validateIfEmpty(controlId)
+    {
+        var control = document.getElementById(controlId);
+
+        if(control.value == "")
+        {
+            control.style.background = "red";
+        }
+        else
+        {
+            control.style.background = "white";
+        }
+    } 
+
+    //If JavaScript is disabled then we want to hide the Name and Gender elements and we want to display the following message.
+    
+    //It seems that you have disabled JavaScript. Please enable JavaScript.
+    
+    //There are two ways to check js is enabled or not:
+    // way 1: easiest way to detect if JavaScript is enabled is by using "noscript"  tag. The content inside the [noscript] element will
+    //- be displayed only if scripts are not supported, or are disabled in the user's browser. 
+
+    //way 2: The "window.location" property returns a Location object that can be used to get information about the cuurent page.
+    //- window.location property can also be used to redirect the browser to a new page.
+
+</script>
+</body>
+</html>

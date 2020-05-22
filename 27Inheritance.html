@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+</head>
+<body>
+   <script>
+       ////Inheritance: In object oriented programming languages like c# and java
+       //- to implement inheritance, a class inherits from another class.
+       // In JavaScript, we don't have the concept of classes, so inheritance in
+       //- Js is prototype-based.This means to implement inheritance in JS,
+       //- an object inherits from another object.
+
+     /*   var Employee = function (name)
+       {
+           this.name = name;
+
+       }
+
+       Employee.prototype.getName = function()
+           {
+               return this.name;
+           }
+
+        var permanentEmployee = function (annualSalary)
+        {
+            return this.annualSalary = annualSalary;
+        }
+
+       var employee = new Employee("vedha");
+
+        //permanentEmployee is derived from Employee object.
+       permanentEmployee.prototype = employee;
+
+       var pe = new permanentEmployee(50000);
+       document.write(pe.getName());
+
+       //we can also check what type of object it is by using 'instanceof'.
+       alert(pe instanceof Employee); //output: true
+       alert(pe instanceof permanentEmployee); //output: true */
+        /***********************************************/
+       ////If we add a new method to the parent object, It becomes
+       //- available in the derived object.
+       
+       var Employee = function (name)
+       {
+           this.name = name;
+
+       }
+
+        Employee.prototype.getName = function()
+           {
+               return this.name;
+           }
+
+           Employee.prototype.getNameLength = function()
+           {
+               return this.name.length;
+           }
+        var permanentEmployee = function (annualSalary)
+        {
+            return this.annualSalary = annualSalary;
+        }
+
+       var employee = new Employee("vedha");
+
+        //permanentEmployee is derived from Employee object.
+       permanentEmployee.prototype = employee;
+
+       var pe = new permanentEmployee(50000);
+       document.write(pe.getNameLength() + "<br /><br />");
+
+       //Use 'hasOwnProperty()' method to determine if a property is defined
+       //- on the actual object or its prototype.
+       document.write("employee.name = " + employee.hasOwnProperty('name') + "<br />");
+       document.write("permanentEmployee.annualSalary = " + pe.hasOwnProperty('annualSalary') + "<br />");
+
+
+
+       
+       
+       
+
+
+
+
+
+
+   </script>
+
+
+       
+
+</body>
+</html>

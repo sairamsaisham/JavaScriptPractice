@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstract classes</title>
+</head>
+<body>
+    <script>
+        
+        ////Abstract classes
+
+        //create a Shape function
+        var Shape = function ()
+        {
+            //public field
+            this.shapeName = "none";
+            //we don't want to allow anyone create a instance of this 'Shape'.
+            throw new Error("Cannot create an instance of an absract class");
+         }
+
+         Shape.prototype.Draw = function()//Here Shape is an obstract object.
+         {
+             return "Drawing " + this.shapeName;
+         }
+
+         /* //If someone create a instance of the Shape then it throw an error.
+         var shape = new Shape();// this line throw error. */
+
+         //create a another function
+         var Circle = function (shapeName)
+         {
+             this.shapeName = shapeName;
+         }
+         //Object.create method allows us to create a object without
+         //-using the function constuctor.
+         //'Shape' is going to be the base type for a 'Circle'
+         Circle.prototype = Object.create(Shape.prototype);
+
+         var circle = new Circle("Square");
+
+         document.write(circle.Draw());
+
+         alert(circle instanceof Circle);
+         alert(circle instanceof Shape);
+         
+
+
+
+    </script>
+</body>
+</html>
