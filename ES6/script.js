@@ -447,26 +447,5 @@ console.log(question.get('question')); */
 const ans = Number(prompt('Write the corect answer'));
 console.log(question.get(ans === question.get('correct'))); */
 
-/****************************************/
-const question = new Map();
-question.set('question', 'When is your wife birthday?');
-question.set(1, 'May 4');
-question.set(2, 'Aug 27');
-question.set(3, 'Jun 12');
-question.set(4, 'Dec 4');
-question.set('correct', 3);
-question.set(true, 'Correct answer! You won wonderfull kiss from your wife now :D');
-question.set(false, 'Wrong answer Kanna! Please try again later');
 
-console.log(question.get('question'));
-
-for (let [key, value] of question.entries()) {
-    if (typeof (key) === 'number')
-    {
-        console.log(`Answer ${key}: ${value}`);
-        }
-}
-
-const ans = Number(prompt('Write the correct answer'));
-console.log(question.get(ans === question.get('correct')));
 
