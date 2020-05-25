@@ -165,13 +165,13 @@ console.log(ages6); */
     clickMe: function () {
         var self = this;
         document.querySelector('.green').addEventListener('click', function () {
-            var str = 'This is box number ' + self.postion + ' and it is ' + self.color;
+            var str = 'This box number ' + self.postion + ' and it is ' + self.color;
             alert(str);
         });
     }
 }
-box5.clickMe();
- */
+box5.clickMe(); */
+ 
 //ES6
 /* var box6 = {
     color: 'green',
@@ -183,15 +183,16 @@ box5.clickMe();
         });
     }
 }
-box6.clickMe();
- */
+box6.clickMe(); */
+ 
 
-/* function person(name) {
+/* function person(name)
+{
     this.name = name;
 }
- */
+  */
 //ES5
-/* person.prototype.myFriends5 = function (friends) {
+/*  person.prototype.myFriends5 = function (friends) {
     
     var arr = friends.map(function (el) {
         return this.name + ' is friends with ' + el;
@@ -200,10 +201,10 @@ box6.clickMe();
 }
 
 var friends = ['Bob', 'Jane', 'Mark'];
-new person('John').myFriends5(friends); */
+new person('John').myFriends5(friends);  */
 
 //ES6
-/* person.prototype.myFriends6 = function (friends) {
+/*  person.prototype.myFriends6 = function (friends) {
     
     var arr = friends.map(el => `${this.name} is friends with ${el}`);
     
@@ -211,7 +212,7 @@ new person('John').myFriends5(friends); */
 }
 
 var friends = ['Bob', 'Jane', 'Mark'];
-new person('John').myFriends6(friends); */
+new person('John').myFriends6(friends);  */
 
 /////////////////////////////////////////////
 // Lecture: Destructuring
@@ -350,14 +351,14 @@ Array.from(all).forEach(cur => cur.style.color = 'purple'); */
 //-to exact an arbitary number of parameters.
 
 //ES5
-function isFullAge5() {
+/* function isFullAge5() {
     //console.log(arguments);
     var argsArr = Array.prototype.slice.call(arguments);
     argsArr.forEach(function (cur) {
         console.log((2016 - cur) >= 18);
     });
 
-}
+} */
 //isFullAge5(1990, 1999, 1965);
 //isFullAge5(1990, 2010, 1987, 1983, 1983);
 
@@ -486,7 +487,7 @@ const John6 = new Person6('John', 1990, 'teacher'); */
 //Lecture: Classes with Subclasses
 
 //ES5
-var Person5 = function (name, yearOfBirth, job) {
+/* var Person5 = function (name, yearOfBirth, job) {
     this.name = name;
     this.yearOfBirth = yearOfBirth;
     this.job = job;
@@ -515,10 +516,10 @@ Athlete5.prototype.wonMedal = function ()
 var johnAthlete5 = new Athlete5('John', 1990, 'swimmer', 3, 10);
 
 johnAthlete5.calculateAge();
-johnAthlete5.wonMedal();
+johnAthlete5.wonMedal(); */
 
 //ES6
-class Person6 {
+/* class Person6 {
     constructor(name, yearOfBirth, job) {
         this.name = name;
         this.yearOfBirth = yearOfBirth;
@@ -550,3 +551,4 @@ const johnAthlete6 = new Athlete6('John', 1990, 'swimmer', 3, 10);
 
 johnAthlete6.calculateAge();
 johnAthlete6.wonMedal();
+ */
