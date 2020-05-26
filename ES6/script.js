@@ -10,7 +10,7 @@
 //-from a data structure like an object or an array.
 //'querySelectorAll' method does not return an array with these
 //-elements but instead it returns a node list.
-//'for off' loop.
+//'for of' loop.
 
 /////////////////////////////////////////////
 
@@ -418,7 +418,7 @@ question.set('correct', 3);
 question.set(true, 'Correct answer :D');
 question.set(false, 'Wrong answer, please try again!');
 
-console.log(question.get('question')); */
+console.log(question.get('question'));  */
 
 
 //question.delete(4);
@@ -438,7 +438,7 @@ console.log(question.get('question')); */
     console.log(`This is ${key}, and it's set to ${value}.`);
 } */
 
-/* for (let [key, value] of question.entries()) {
+/*  for (let [key, value] of question.entries()) {
     if (typeof (key) === 'number')
     {
         console.log(`Answer ${key}: ${value}`);
@@ -446,7 +446,7 @@ console.log(question.get('question')); */
 }
  //we can use 'Number' or 'parseInt' in the below statement.
 const ans = Number(prompt('Write the corect answer'));
-console.log(question.get(ans === question.get('correct'))); */
+console.log(question.get(ans === question.get('correct')));  */
 
 
 ////////////////////////////////////////////////////
